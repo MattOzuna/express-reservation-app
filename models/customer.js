@@ -63,7 +63,7 @@ class Customer {
     const namesArr = name.split(' ')
     const firstName = namesArr[0]
     const lastName = namesArr[1]
-    
+
     const results = await db.query(
       `SELECT id, 
         first_name AS "firstName",  
@@ -79,7 +79,7 @@ class Customer {
     const customer = results.rows[0];
 
     if (customer === undefined) {
-      const err = new Error(`No such customer: ${name}`);
+      const err = new Error(`No customer named: ${name}`);
       err.status = 404;
       throw err;
     }
